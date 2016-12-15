@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
 #import "URLCache.h"
 
 @interface AppDelegate ()
@@ -21,6 +23,12 @@
     
     URLCache * cache = [[URLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     [URLCache setSharedURLCache:cache];
+    
+    
+    ViewController * vc = [ViewController new];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		118E8F4C9C73A0D121355C00 /* libPods-SURLCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53374E9D4B5E0A06A0E103D7 /* libPods-SURLCache.a */; };
 		D44794291E0246D70002D338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D44794281E0246D70002D338 /* main.m */; };
 		D447942C1E0246D70002D338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D447942B1E0246D70002D338 /* AppDelegate.m */; };
 		D447942F1E0246D70002D338 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D447942E1E0246D70002D338 /* ViewController.m */; };
@@ -14,9 +15,13 @@
 		D44794341E0246D70002D338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44794331E0246D70002D338 /* Assets.xcassets */; };
 		D44794371E0246D70002D338 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44794351E0246D70002D338 /* LaunchScreen.storyboard */; };
 		D44794411E0247580002D338 /* URLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D44794401E0247580002D338 /* URLCache.m */; };
+		D44794451E0262FC0002D338 /* FetchURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D44794441E0262FC0002D338 /* FetchURL.m */; };
+		D44794481E026B570002D338 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44794471E026B570002D338 /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4BC4CEA7EA608F7C769D37C7 /* Pods-SURLCache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SURLCache.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SURLCache/Pods-SURLCache.debug.xcconfig"; sourceTree = "<group>"; };
+		53374E9D4B5E0A06A0E103D7 /* libPods-SURLCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SURLCache.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44794241E0246D70002D338 /* SURLCache.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SURLCache.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44794281E0246D70002D338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D447942A1E0246D70002D338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,6 +34,11 @@
 		D44794381E0246D70002D338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D447943F1E0247580002D338 /* URLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCache.h; sourceTree = "<group>"; };
 		D44794401E0247580002D338 /* URLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCache.m; sourceTree = "<group>"; };
+		D44794431E0262FC0002D338 /* FetchURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchURL.h; sourceTree = "<group>"; };
+		D44794441E0262FC0002D338 /* FetchURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchURL.m; sourceTree = "<group>"; };
+		D44794461E026B570002D338 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		D44794471E026B570002D338 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		E5A77F0F38D7DCF9BCA31192 /* Pods-SURLCache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SURLCache.release.xcconfig"; path = "Pods/Target Support Files/Pods-SURLCache/Pods-SURLCache.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +46,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118E8F4C9C73A0D121355C00 /* libPods-SURLCache.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4672986589DADD117E380F63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53374E9D4B5E0A06A0E103D7 /* libPods-SURLCache.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D447941B1E0246D70002D338 = {
 			isa = PBXGroup;
 			children = (
 				D44794261E0246D70002D338 /* SURLCache */,
 				D44794251E0246D70002D338 /* Products */,
+				DF8154065B91A6316F0D5EAF /* Pods */,
+				4672986589DADD117E380F63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,11 +82,14 @@
 		D44794261E0246D70002D338 /* SURLCache */ = {
 			isa = PBXGroup;
 			children = (
+				D44794421E0262DE0002D338 /* FetchURL */,
 				D447943E1E0247340002D338 /* URLCache */,
 				D447942A1E0246D70002D338 /* AppDelegate.h */,
 				D447942B1E0246D70002D338 /* AppDelegate.m */,
 				D447942D1E0246D70002D338 /* ViewController.h */,
 				D447942E1E0246D70002D338 /* ViewController.m */,
+				D44794461E026B570002D338 /* TestViewController.h */,
+				D44794471E026B570002D338 /* TestViewController.m */,
 				D44794301E0246D70002D338 /* Main.storyboard */,
 				D44794331E0246D70002D338 /* Assets.xcassets */,
 				D44794351E0246D70002D338 /* LaunchScreen.storyboard */,
@@ -92,6 +116,24 @@
 			path = URLCache;
 			sourceTree = "<group>";
 		};
+		D44794421E0262DE0002D338 /* FetchURL */ = {
+			isa = PBXGroup;
+			children = (
+				D44794431E0262FC0002D338 /* FetchURL.h */,
+				D44794441E0262FC0002D338 /* FetchURL.m */,
+			);
+			path = FetchURL;
+			sourceTree = "<group>";
+		};
+		DF8154065B91A6316F0D5EAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BC4CEA7EA608F7C769D37C7 /* Pods-SURLCache.debug.xcconfig */,
+				E5A77F0F38D7DCF9BCA31192 /* Pods-SURLCache.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +141,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D447943B1E0246D70002D338 /* Build configuration list for PBXNativeTarget "SURLCache" */;
 			buildPhases = (
+				D2CF4576F4D29C2CC3E86BD7 /* [CP] Check Pods Manifest.lock */,
 				D44794201E0246D70002D338 /* Sources */,
 				D44794211E0246D70002D338 /* Frameworks */,
 				D44794221E0246D70002D338 /* Resources */,
+				EBED72151E9863B605D9D6BA /* [CP] Embed Pods Frameworks */,
+				ED1EFE444A55B9CCEB25D324 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +168,7 @@
 				TargetAttributes = {
 					D44794231E0246D70002D338 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = UQSUXJQD38;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -158,11 +204,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D2CF4576F4D29C2CC3E86BD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EBED72151E9863B605D9D6BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SURLCache/Pods-SURLCache-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED1EFE444A55B9CCEB25D324 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SURLCache/Pods-SURLCache-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D44794201E0246D70002D338 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44794481E026B570002D338 /* TestViewController.m in Sources */,
+				D44794451E0262FC0002D338 /* FetchURL.m in Sources */,
 				D44794411E0247580002D338 /* URLCache.m in Sources */,
 				D447942F1E0246D70002D338 /* ViewController.m in Sources */,
 				D447942C1E0246D70002D338 /* AppDelegate.m in Sources */,
@@ -282,8 +378,10 @@
 		};
 		D447943C1E0246D70002D338 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC4CEA7EA608F7C769D37C7 /* Pods-SURLCache.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UQSUXJQD38;
 				INFOPLIST_FILE = SURLCache/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tongxuan.SURLCache;
@@ -293,8 +391,10 @@
 		};
 		D447943D1E0246D70002D338 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5A77F0F38D7DCF9BCA31192 /* Pods-SURLCache.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UQSUXJQD38;
 				INFOPLIST_FILE = SURLCache/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tongxuan.SURLCache;
