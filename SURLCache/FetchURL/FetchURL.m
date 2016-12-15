@@ -8,6 +8,7 @@
 
 #import "FetchURL.h"
 #import "AFNetworking.h"
+#import "URLCache.h"
 
 static FetchURL * fetch = nil;
 
@@ -50,12 +51,35 @@ static FetchURL * fetch = nil;
 
 }
 
-- (void)getWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters successHandle:(SuccessHandle)success failureHandle:(FailureHandle)failure {
-    
-    NSMutableURLRequest * request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+- (void)getURLString:(NSString *)URLString parameters:(NSDictionary *)parameters successHandle:(SuccessHandle)success failureHandle:(FailureHandle)failure {
+    [self networkWithURLString:URLString parameters:parameters method:@"GET" successHandle:success failureHandle:failure];
+}
+
+- (void)postURLString:(NSString *)URLString parameters:(NSDictionary *)parameters successHandle:(SuccessHandle)success failureHandle:(FailureHandle)failure {
+    [self networkWithURLString:URLString parameters:parameters method:@"POST" successHandle:success failureHandle:failure];
+}
+
+#pragma mark Private
+- (void)networkWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters method:(NSString *)method successHandle:(SuccessHandle)success failureHandle:(FailureHandle)failure {
+    NSMutableURLRequest * request = [[AFHTTPRequestSerializer serializer] requestWithMethod:method URLString:URLString parameters:parameters error:nil];
     request.timeoutInterval = 15.0;
     
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+    
+    // cache
+    NSCachedURLResponse *cacheURLResponse = nil;
+    if ([method isEqual:@"GET"]) {
+        cacheURLResponse = [[URLCache sharedURLCache] cachedResponseForRequest:request];
+        if (cacheURLResponse) {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)cacheURLResponse.response;
+            NSString *cachedResponseEtag = [httpResponse.allHeaderFields objectForKey:@"Etag"];
+            if (cachedResponseEtag) {
+                [request setValue:cachedResponseEtag forHTTPHeaderField:@"If-None-Match"];
+            }
+        }
+    }
+    
     [AFHTTPResponseSerializer serializer].acceptableContentTypes = [NSSet setWithArray:@[@"application/json",@"text/html",@"application/xml"]];
     self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
@@ -66,9 +90,18 @@ static FetchURL * fetch = nil;
 #endif
             failure(error);
         } else {
-            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSData * data = responseObject;
+            NSHTTPURLResponse *newHttpResponse = (NSHTTPURLResponse *)response;
+            if (newHttpResponse.statusCode == 304) {
+                // cached in local
+                data = cacheURLResponse.data;
+            } else {
+                // refreshed from server
+            }
+            
+            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 #ifdef DEBUG
-            NSLog(@"Response: %@", dic);
+            NSLog(@"Response: %@\n\nData: %@",response, dic);
 #endif
             success(response, dic);
         }
@@ -77,9 +110,7 @@ static FetchURL * fetch = nil;
     if (dataTask) {
         [self.dataTasksArr addObject:dataTask];
     }
-    
 }
-
 
 #pragma mark Getter 
 - (AFURLSessionManager *)manager {

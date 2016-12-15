@@ -15,6 +15,8 @@ typedef void(^FailureHandle)(NSError * error);
 
 + (instancetype)shareFetch;
 
-- (void)getWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters successHandle:(SuccessHandle)success failureHandle:(FailureHandle)failure;
+- (void)getURLString:(NSString *)URLString parameters:(NSDictionary *)parameters successHandle:(SuccessHandle)success failureHandle:(FailureHandle)failure;
+
+- (void)postURLString:(NSString *)URLString parameters:(NSDictionary *)parameters successHandle:(SuccessHandle)success failureHandle:(FailureHandle)failure;
 
 @end
