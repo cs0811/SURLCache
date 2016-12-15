@@ -86,7 +86,7 @@ static FetchURL * fetch = nil;
     NSURLSessionDataTask *dataTask = [self.manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response,id responseObject, NSError *error) {
         if (error) {
 #ifdef DEBUG
-            NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@\n", error);
 #endif
             failure(error);
         } else {

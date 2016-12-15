@@ -24,7 +24,7 @@
     
     
     self.fetch = [FetchURL new];
-    [self.fetch getWithURLString:@"http://www.weather.com.cn/data/sk/101190408.html" parameters:nil successHandle:^(NSURLResponse *response, id responseObject) {
+    [self.fetch getURLString:@"http://www.weather.com.cn/data/sk/101190408.html" parameters:nil successHandle:^(NSURLResponse *response, id responseObject) {
         NSLog(@" -- %@",responseObject);
     } failureHandle:^(NSError *error) {
         NSLog(@" -- %@",error);
